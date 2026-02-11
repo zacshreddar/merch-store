@@ -1,1 +1,48 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f5f5;
+}
+
+.header {
+  background: black;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.products {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.product {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.product button {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Desktop enhancement */
+@media (min-width: 768px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
