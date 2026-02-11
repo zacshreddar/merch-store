@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width">
+  <title>Checkout</title>
+</head>
+<body>
+
+<h2>MPESA Payment</h2>
+<input type="tel" id="phone" placeholder="07XXXXXXXX">
+<button onclick="pay()">Pay Now</button>
+
+<script>
+async function pay() {
+  const phone = document.getElementById("phone").value;
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const amount = cart.reduce((s, i) => s + i.price, 0);
+
+  const res = await fetch("https://YOUR_BACKEND/pay", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ phone, amount })
+  });
+
+  const data = await res.json();
+  alert(data.message);
+}
+</script>
+</body>
+</html>
 
