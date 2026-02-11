@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width">
+  <title>Cart</title>
+</head>
+<body>
+
+<h2>Your Cart</h2>
+<div id="cart"></div>
+<a href="checkout.html">Checkout</a>
+
+<script>
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
+
+cart.forEach(item => {
+  total += item.price;
+  document.getElementById("cart").innerHTML += `
+    <p>${item.name} - ${item.size} - ${item.color} (KES ${item.price})</p>
+  `;
+});
+
+document.getElementById("cart").innerHTML += `<h3>Total: KES ${total}</h3>`;
+</script>
+</body>
+</html>
 
